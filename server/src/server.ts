@@ -12,13 +12,8 @@ const prisma = new PrismaClient();
 app.register(cors);
 
 app.get('/', async () => {
-    const habits = await prisma.habit.findMany({
-        where: {
-            title:{
-                contains: 'Beber'
-            }
-        }
-    });
+    const habits = await prisma.habit.findMany();
+    
     return habits;
 });
 
